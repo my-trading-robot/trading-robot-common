@@ -4,7 +4,7 @@ const HOUR_KEY: &'static str = "1h";
 const DAY_KEY: &'static str = "1d";
 const MONTH_KEY: &'static str = "1M";
 
-#[derive(Clone, Copy)]
+#[derive(Debug, Clone, Copy)]
 pub enum CandleType {
     Minute,
     Minute5,

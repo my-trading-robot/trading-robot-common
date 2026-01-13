@@ -2,6 +2,7 @@ use rust_extensions::date_time::*;
 
 use crate::CandleType;
 
+#[derive(Debug, Clone, Copy)]
 pub struct CandleIntervalKey {
     value: u64,
     candle_type: CandleType,
