@@ -7,7 +7,7 @@ const MONTH_KEY: &'static str = "1M";
 #[derive(Debug, Clone, Copy)]
 pub enum CandleType {
     Minute,
-    Minute5,
+    Min5,
     Hour,
     Day,
     Month,
@@ -15,7 +15,7 @@ pub enum CandleType {
 impl CandleType {
     pub const ALL: [CandleType; 5] = [
         CandleType::Minute,
-        CandleType::Minute5,
+        CandleType::Min5,
         CandleType::Hour,
         CandleType::Day,
         CandleType::Month,
@@ -23,7 +23,7 @@ impl CandleType {
     pub fn as_str(&self) -> &'static str {
         match self {
             Self::Minute => MINUTE_KEY,
-            Self::Minute5 => MINUTE_5_KEY,
+            Self::Min5 => MINUTE_5_KEY,
             Self::Hour => HOUR_KEY,
             Self::Day => DAY_KEY,
             Self::Month => MONTH_KEY,
@@ -33,7 +33,7 @@ impl CandleType {
     pub fn from_str(src: &str) -> Self {
         match src {
             MINUTE_KEY => Self::Minute,
-            MINUTE_5_KEY => Self::Minute5,
+            MINUTE_5_KEY => Self::Min5,
             HOUR_KEY => Self::Hour,
             DAY_KEY => Self::Day,
             MONTH_KEY => Self::Month,

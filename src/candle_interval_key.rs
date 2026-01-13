@@ -28,7 +28,7 @@ impl CandleIntervalKey {
                 key.to_i64() as u64
             }
 
-            CandleType::Minute5 => {
+            CandleType::Min5 => {
                 let key: IntervalKey<Minute5Key> = date.try_into().unwrap();
                 key.to_i64() as u64
             }
