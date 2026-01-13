@@ -13,6 +13,13 @@ pub enum CandleType {
     Month,
 }
 impl CandleType {
+    pub const ALL: [CandleType; 5] = [
+        CandleType::Minute,
+        CandleType::Minute5,
+        CandleType::Hour,
+        CandleType::Day,
+        CandleType::Month,
+    ];
     pub fn as_str(&self) -> &'static str {
         match self {
             Self::Minute => MINUTE_KEY,
