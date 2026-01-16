@@ -1,3 +1,5 @@
+use rust_extensions::date_time::*;
+
 const MINUTE_KEY: &'static str = "1m";
 const MINUTE_5_KEY: &'static str = "5m";
 const HOUR_KEY: &'static str = "1h";
@@ -39,6 +41,31 @@ impl CandleType {
             MONTH_KEY => Self::Month,
             _ => {
                 panic!("Invalid candle interval key: {}", src);
+            }
+        }
+    }
+
+    pub fn to_interval_key(&self, now: DateTimeAsMicroseconds) -> i64 {
+        match self {
+            Self::Minute => {
+                let interval_key: IntervalKey<MinuteKey> = now.into();
+                interval_key.to_i64()
+            }
+            Self::Hour => {
+                let interval_key: IntervalKey<HourKey> = now.into();
+                interval_key.to_i64()
+            }
+            Self::Day => {
+                let interval_key: IntervalKey<DayKey> = now.into();
+                interval_key.to_i64()
+            }
+            Self::Month => {
+                let interval_key: IntervalKey<MonthKey> = now.into();
+                interval_key.to_i64()
+            }
+            Self::Min5 => {
+                let interval_key: IntervalKey<Minute5Key> = now.into();
+                interval_key.to_i64()
             }
         }
     }
